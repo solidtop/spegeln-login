@@ -12,16 +12,21 @@
     <div class="container">
         <h1>Logga in</h1>
 
-        <form>
-            <div class="mb-3">
+        <form class="needs-validation" novalidate>
+             <div class="mb-4 has-validation">
                 <label for="username">Användarnamn</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="Skriv ditt användarnamn" required>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Skriv ditt användarnamn..." required>
+                <div class="invalid-feedback">
+                    Ogiltigt användarnamn
+                </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4 has-validation">
                 <label for="password">Lösenord</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Skriv ditt lösenord" required>
-                
+                <input type="password" name="password" class="form-control" id="password" placeholder="Skriv ditt lösenord..." required>
+                <div class="invalid-feedback">
+                    Ogiltigt lösenord
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Logga in</button>
