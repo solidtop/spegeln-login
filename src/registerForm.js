@@ -4,10 +4,6 @@ form.addEventListener('submit', e => {
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-
-    const isValid = validateEmail(data.email);
-    console.log(isValid)
-    
 });
 
 document.querySelector('#password').addEventListener('input', e => {
@@ -22,12 +18,13 @@ function validateEmail(email) {
 function checkPasswordStrength(password) {
     const indicator = document.querySelector('#password-strength');
     console.log(password.length)
-    if (password.length < 2) {
+    if (password.length < 1) {
         indicator.textContent = '';
+        return;
     }
 
-    const regMedium = /((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))/;
-    const regStrong = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+    const regMedium = /((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))/;
+    const regStrong = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 
     if (regStrong.test(password)) {
         indicator.textContent = 'stark';
